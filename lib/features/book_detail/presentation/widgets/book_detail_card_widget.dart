@@ -8,13 +8,14 @@ import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/enums/date/date_format_types.dart';
 import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
-import 'package:flutter_tech_task/features/book_detail/domain/entities/response/book_detail_entity/book_detail_entity.dart';
+import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
+import 'package:flutter_tech_task/common/widgets/book_card/view/book_card_widget.dart';
 import 'package:flutter_tech_task/generated/assets.gen.dart';
 
 class BookDetailCardWidget extends StatelessWidget {
   const BookDetailCardWidget({super.key, required this.book});
 
-  final BookDetailEntity book;
+  final BookEntity book;
 
   @override
   Widget build(BuildContext context) {
@@ -40,24 +41,12 @@ class BookDetailCardWidget extends StatelessWidget {
   }
 
   Widget get _buildCardHeader {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        _buildSuffixWidget,
-        8.sbxw,
-        _buildCardBody,
-        Spacer(),
-        AppSvgWidget(
-          path: Assets.icons.general.iconLike.path,
-          color: AppThemes
-              .currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
-        ),
-      ],
+    return BookCardWidget(
+      book: book,
     );
   }
 
-  Widget get _buildSuffixWidget {
+  Widget get _buildPrefixWidget {
     return Container(
       padding: EdgeInsets.all(4),
       decoration: BoxDecoration(
@@ -68,6 +57,14 @@ class BookDetailCardWidget extends StatelessWidget {
         path: Assets.icons.general.icBook.path,
         color: AppLightColors.purple60,
       ),
+    );
+  }
+
+  Widget get _buildSuffixWidget {
+    return AppSvgWidget(
+      path: Assets.icons.general.iconLike.path,
+      color:
+          AppThemes.currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
     );
   }
 

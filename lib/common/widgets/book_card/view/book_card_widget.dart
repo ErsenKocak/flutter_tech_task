@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
 import 'package:flutter_tech_task/common/widgets/app_svg/app_svg_widget.dart';
+import 'package:flutter_tech_task/common/widgets/book_card/mixin/book_card_mixin.dart';
 import 'package:flutter_tech_task/core/constants/application/application.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
+import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
+import 'package:flutter_tech_task/features/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/generated/assets.gen.dart';
 
-class BookCardWidget extends StatelessWidget {
+class BookCardWidget extends StatefulWidget {
   const BookCardWidget({super.key, required this.book});
 
   final BookEntity book;
 
+  @override
+  State<BookCardWidget> createState() => _BookCardWidgetState();
+}
+
+class _BookCardWidgetState extends State<BookCardWidget> with BookCardMixin {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,21 +29,17 @@ class BookCardWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildSuffixWidget,
+          _buildPrefixWidget,
           8.sbxw,
           _buildCardBody,
           Spacer(),
-          Text(
-            '${book.pages} Sayfa',
-            style: context.textTheme.xSmall.regular
-                .copyWith(color: AppLightColors.dark400),
-          ),
+          _buildSuffixWidget
         ],
       ),
     );
   }
 
-  Widget get _buildSuffixWidget {
+  Widget get _buildPrefixWidget {
     return Container(
       padding: EdgeInsets.all(4),
       decoration: BoxDecoration(
@@ -45,6 +50,23 @@ class BookCardWidget extends StatelessWidget {
         path: Assets.icons.general.icBook.path,
         color: AppLightColors.purple60,
       ),
+    );
+  }
+
+  Widget get _buildSuffixWidget {
+    return BlocBuilder<FavoritesCubit, FavoritesState>(
+      builder: (context, state) {
+        return AppSvgWidget(
+          path: checkBookIsFavorite(widget.book)
+              ? Assets.icons.general.iconLikeFill.path
+              : Assets.icons.general.iconLike.path,
+          color: checkBookIsFavorite(widget.book)
+              ? AppLightColors.primaryPink
+              : AppThemes
+                  .currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
+          onTap: () => onTapFavorite(widget.book),
+        );
+      },
     );
   }
 
@@ -63,7 +85,7 @@ class BookCardWidget extends StatelessWidget {
 
   Widget get _buildBookTitle {
     return Text(
-      book.title ?? '',
+      widget.book.title ?? '',
       style: Application.applicationContext.textTheme.body.smallSemibold,
     );
   }
@@ -72,12 +94,12 @@ class BookCardWidget extends StatelessWidget {
     return Row(
       children: [
         Text(
-          book.year.toString(),
+          widget.book.year.toString(),
           style: Application.applicationContext.textTheme.xSmall.medium
               .copyWith(color: AppLightColors.dark500),
         ),
         Text(
-          ' - ${book.pages} Sayfa',
+          ' - ${widget.book.pages} Sayfa',
           style: Application.applicationContext.textTheme.xSmall.regular
               .copyWith(color: AppLightColors.dark400),
         ),

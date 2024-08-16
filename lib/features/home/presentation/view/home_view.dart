@@ -19,7 +19,7 @@ import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/features/home/presentation/cubit/home_cubit.dart';
 import 'package:flutter_tech_task/features/home/presentation/mixin/home_mixin.dart';
-import 'package:flutter_tech_task/features/home/presentation/widgets/book_card_widget.dart';
+import 'package:flutter_tech_task/common/widgets/book_card/view/book_card_widget.dart';
 import 'package:flutter_tech_task/features/home/presentation/widgets/home_shimmer_widget.dart';
 import 'package:flutter_tech_task/generated/assets.gen.dart';
 

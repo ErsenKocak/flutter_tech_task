@@ -4,7 +4,6 @@ import 'package:flutter_tech_task/core/constants/network/http_call_type/http_cal
 import 'package:flutter_tech_task/core/mapper/api_model_mapper.dart';
 import 'package:flutter_tech_task/core/network/http_client/http_client_api_url/http_client_end_points.dart';
 import 'package:flutter_tech_task/core/network/http_client/manager/network_client.dart';
-import 'package:flutter_tech_task/features/book_detail/data/models/response/book_detail_model/book_detail_model.dart';
 import 'package:flutter_tech_task/features/home/data/models/response/book_model/book_model.dart';
 import 'package:flutter_tech_task/features/home/data/services/i_book_service.dart';
 
@@ -30,11 +29,11 @@ final class BookService implements IBookService {
   }
 
   @override
-  Future<Result<BookDetailModel, AppException>> getBookDetail(int id) async {
+  Future<Result<BookModel, AppException>> getBookDetail(int id) async {
     return await _networkClient.call(
       path: '${HttpClientEndPoints.GetBookDetail.URL}/$id',
       callType: HttpCallType.GET,
-      mapper: (json) => BookDetailModel.fromJson(json),
+      mapper: (json) => BookModel.fromJson(json),
     );
   }
 }

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'book_detail_cubit.dart';
+part of 'favorites_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,29 +15,29 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$BookDetailState {
+mixin _$FavoritesState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookEntity bookDetail) success,
-    required TResult Function(AppException exception) failure,
+    required TResult Function(List<BookEntity> favoriteBooks) success,
+    required TResult Function(String errorMessage) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookEntity bookDetail)? success,
-    TResult? Function(AppException exception)? failure,
+    TResult? Function(List<BookEntity> favoriteBooks)? success,
+    TResult? Function(String errorMessage)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookEntity bookDetail)? success,
-    TResult Function(AppException exception)? failure,
+    TResult Function(List<BookEntity> favoriteBooks)? success,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,16 +69,16 @@ mixin _$BookDetailState {
 }
 
 /// @nodoc
-abstract class $BookDetailStateCopyWith<$Res> {
-  factory $BookDetailStateCopyWith(
-          BookDetailState value, $Res Function(BookDetailState) then) =
-      _$BookDetailStateCopyWithImpl<$Res, BookDetailState>;
+abstract class $FavoritesStateCopyWith<$Res> {
+  factory $FavoritesStateCopyWith(
+          FavoritesState value, $Res Function(FavoritesState) then) =
+      _$FavoritesStateCopyWithImpl<$Res, FavoritesState>;
 }
 
 /// @nodoc
-class _$BookDetailStateCopyWithImpl<$Res, $Val extends BookDetailState>
-    implements $BookDetailStateCopyWith<$Res> {
-  _$BookDetailStateCopyWithImpl(this._value, this._then);
+class _$FavoritesStateCopyWithImpl<$Res, $Val extends FavoritesState>
+    implements $FavoritesStateCopyWith<$Res> {
+  _$FavoritesStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +95,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$BookDetailStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$FavoritesStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -109,25 +109,16 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'BookDetailState.initial()';
+    return 'FavoritesState.initial()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookEntity bookDetail) success,
-    required TResult Function(AppException exception) failure,
+    required TResult Function(List<BookEntity> favoriteBooks) success,
+    required TResult Function(String errorMessage) failure,
   }) {
     return initial();
   }
@@ -137,8 +128,8 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookEntity bookDetail)? success,
-    TResult? Function(AppException exception)? failure,
+    TResult? Function(List<BookEntity> favoriteBooks)? success,
+    TResult? Function(String errorMessage)? failure,
   }) {
     return initial?.call();
   }
@@ -148,8 +139,8 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookEntity bookDetail)? success,
-    TResult Function(AppException exception)? failure,
+    TResult Function(List<BookEntity> favoriteBooks)? success,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -196,7 +187,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements BookDetailState {
+abstract class _Initial implements FavoritesState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -209,7 +200,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$BookDetailStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$FavoritesStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -223,25 +214,16 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'BookDetailState.loading()';
+    return 'FavoritesState.loading()';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookEntity bookDetail) success,
-    required TResult Function(AppException exception) failure,
+    required TResult Function(List<BookEntity> favoriteBooks) success,
+    required TResult Function(String errorMessage) failure,
   }) {
     return loading();
   }
@@ -251,8 +233,8 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookEntity bookDetail)? success,
-    TResult? Function(AppException exception)? failure,
+    TResult? Function(List<BookEntity> favoriteBooks)? success,
+    TResult? Function(String errorMessage)? failure,
   }) {
     return loading?.call();
   }
@@ -262,8 +244,8 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookEntity bookDetail)? success,
-    TResult Function(AppException exception)? failure,
+    TResult Function(List<BookEntity> favoriteBooks)? success,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -310,7 +292,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements BookDetailState {
+abstract class _Loading implements FavoritesState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -320,14 +302,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BookEntity bookDetail});
-
-  $BookEntityCopyWith<$Res> get bookDetail;
+  $Res call({List<BookEntity> favoriteBooks});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$BookDetailStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$FavoritesStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -336,49 +316,35 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bookDetail = null,
+    Object? favoriteBooks = null,
   }) {
     return _then(_$SuccessImpl(
-      null == bookDetail
-          ? _value.bookDetail
-          : bookDetail // ignore: cast_nullable_to_non_nullable
-              as BookEntity,
+      null == favoriteBooks
+          ? _value._favoriteBooks
+          : favoriteBooks // ignore: cast_nullable_to_non_nullable
+              as List<BookEntity>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $BookEntityCopyWith<$Res> get bookDetail {
-    return $BookEntityCopyWith<$Res>(_value.bookDetail, (value) {
-      return _then(_value.copyWith(bookDetail: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.bookDetail);
+  const _$SuccessImpl(final List<BookEntity> favoriteBooks)
+      : _favoriteBooks = favoriteBooks;
 
+  final List<BookEntity> _favoriteBooks;
   @override
-  final BookEntity bookDetail;
+  List<BookEntity> get favoriteBooks {
+    if (_favoriteBooks is EqualUnmodifiableListView) return _favoriteBooks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_favoriteBooks);
+  }
 
   @override
   String toString() {
-    return 'BookDetailState.success(bookDetail: $bookDetail)';
+    return 'FavoritesState.success(favoriteBooks: $favoriteBooks)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SuccessImpl &&
-            (identical(other.bookDetail, bookDetail) ||
-                other.bookDetail == bookDetail));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, bookDetail);
 
   @JsonKey(ignore: true)
   @override
@@ -391,10 +357,10 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookEntity bookDetail) success,
-    required TResult Function(AppException exception) failure,
+    required TResult Function(List<BookEntity> favoriteBooks) success,
+    required TResult Function(String errorMessage) failure,
   }) {
-    return success(bookDetail);
+    return success(favoriteBooks);
   }
 
   @override
@@ -402,10 +368,10 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookEntity bookDetail)? success,
-    TResult? Function(AppException exception)? failure,
+    TResult? Function(List<BookEntity> favoriteBooks)? success,
+    TResult? Function(String errorMessage)? failure,
   }) {
-    return success?.call(bookDetail);
+    return success?.call(favoriteBooks);
   }
 
   @override
@@ -413,12 +379,12 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookEntity bookDetail)? success,
-    TResult Function(AppException exception)? failure,
+    TResult Function(List<BookEntity> favoriteBooks)? success,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(bookDetail);
+      return success(favoriteBooks);
     }
     return orElse();
   }
@@ -461,10 +427,10 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements BookDetailState {
-  const factory _Success(final BookEntity bookDetail) = _$SuccessImpl;
+abstract class _Success implements FavoritesState {
+  const factory _Success(final List<BookEntity> favoriteBooks) = _$SuccessImpl;
 
-  BookEntity get bookDetail;
+  List<BookEntity> get favoriteBooks;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -476,12 +442,12 @@ abstract class _$$FailureImplCopyWith<$Res> {
           _$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AppException exception});
+  $Res call({String errorMessage});
 }
 
 /// @nodoc
 class __$$FailureImplCopyWithImpl<$Res>
-    extends _$BookDetailStateCopyWithImpl<$Res, _$FailureImpl>
+    extends _$FavoritesStateCopyWithImpl<$Res, _$FailureImpl>
     implements _$$FailureImplCopyWith<$Res> {
   __$$FailureImplCopyWithImpl(
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
@@ -490,13 +456,13 @@ class __$$FailureImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? exception = null,
+    Object? errorMessage = null,
   }) {
     return _then(_$FailureImpl(
-      null == exception
-          ? _value.exception
-          : exception // ignore: cast_nullable_to_non_nullable
-              as AppException,
+      null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -504,27 +470,15 @@ class __$$FailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FailureImpl implements _Failure {
-  const _$FailureImpl(this.exception);
+  const _$FailureImpl(this.errorMessage);
 
   @override
-  final AppException exception;
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'BookDetailState.failure(exception: $exception)';
+    return 'FavoritesState.failure(errorMessage: $errorMessage)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$FailureImpl &&
-            (identical(other.exception, exception) ||
-                other.exception == exception));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, exception);
 
   @JsonKey(ignore: true)
   @override
@@ -537,10 +491,10 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookEntity bookDetail) success,
-    required TResult Function(AppException exception) failure,
+    required TResult Function(List<BookEntity> favoriteBooks) success,
+    required TResult Function(String errorMessage) failure,
   }) {
-    return failure(exception);
+    return failure(errorMessage);
   }
 
   @override
@@ -548,10 +502,10 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookEntity bookDetail)? success,
-    TResult? Function(AppException exception)? failure,
+    TResult? Function(List<BookEntity> favoriteBooks)? success,
+    TResult? Function(String errorMessage)? failure,
   }) {
-    return failure?.call(exception);
+    return failure?.call(errorMessage);
   }
 
   @override
@@ -559,12 +513,12 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookEntity bookDetail)? success,
-    TResult Function(AppException exception)? failure,
+    TResult Function(List<BookEntity> favoriteBooks)? success,
+    TResult Function(String errorMessage)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(exception);
+      return failure(errorMessage);
     }
     return orElse();
   }
@@ -607,10 +561,10 @@ class _$FailureImpl implements _Failure {
   }
 }
 
-abstract class _Failure implements BookDetailState {
-  const factory _Failure(final AppException exception) = _$FailureImpl;
+abstract class _Failure implements FavoritesState {
+  const factory _Failure(final String errorMessage) = _$FailureImpl;
 
-  AppException get exception;
+  String get errorMessage;
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
