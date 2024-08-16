@@ -15,14 +15,12 @@ final class FavoritesRepository implements IFavoritesRepository {
   final IFavoritesLocalService _favoritesLocalService;
 
   @override
-  Future<List<BookEntity>?> getFavoriteBooks() async {
+  Future<List<BookEntity>?> getFavoriteBooksFromCache() async {
+    List<BookEntity>? bookList = [];
     final response =
         await _favoritesLocalService.get(CacheConstants.FavoriteBooks.name);
 
     AppLogger.call(title: 'Favorite Books Repository', value: response);
-
-    List<BookEntity>? bookList = [];
-
     if (response.isNullOrEmpty == false) {
       bookList = response?.map((e) => BookEntity.fromJson(e)).toList();
     }
@@ -31,7 +29,7 @@ final class FavoritesRepository implements IFavoritesRepository {
   }
 
   @override
-  void updateFavorites(List<BookEntity> favoriteBooks) {
+  void updateFavoritesCache(List<BookEntity> favoriteBooks) {
     _favoritesLocalService.put(
         CacheConstants.FavoriteBooks.name, favoriteBooks);
   }

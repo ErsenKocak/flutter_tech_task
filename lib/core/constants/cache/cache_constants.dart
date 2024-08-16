@@ -1,1 +1,7 @@
-enum CacheConstants { User, AccessToken, Theme, FavoriteBooks }
+enum CacheConstants {
+  User,
+  AccessToken,
+  Theme,
+  FavoriteBooks,
+  Notification,
+}

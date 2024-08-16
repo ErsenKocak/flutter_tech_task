@@ -1,9 +1,15 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:flutter_tech_task/common/extensions/null_check/null_check_extension.dart';
 import 'package:flutter_tech_task/common/logger/app_logger.dart';
 import 'package:flutter_tech_task/core/constants/application/application.dart';
+import 'package:flutter_tech_task/core/router/app_router.dart';
+import 'package:flutter_tech_task/core/router/app_routes.dart';
+import 'package:timezone/data/latest.dart' as timeZone;
+import 'package:timezone/timezone.dart' as timeZone;
 
 final class AppLocalNotificationHelper {
   static final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -71,6 +77,49 @@ final class AppLocalNotificationHelper {
           '------- App Local Notification Helper onDidReceiveNotificationResponse -------',
       value: 'Notification Response - ${notificationResponse.payload}',
     );
+
+    if (notificationResponse.payload.isNullOrEmpty == false) {
+      Uri? uri = Uri.tryParse(notificationResponse.payload!);
+      if (uri != null) {
+        AppLogger.call(title: 'URI Path', value: uri.path);
+        AppLogger.call(
+            title: 'URI Query Parameters', value: uri.queryParameters);
+
+        AppRoutes route = uri.path.getAppRoute;
+
+        String? currentRouteName =
+            AppRouter.currentRoute(Application.applicationContext);
+
+        if (currentRouteName.isNullOrEmpty == false &&
+            currentRouteName != route.name) {
+          AppRouter.navigatePushNamed(route.path,
+              pathParameters: uri.queryParameters);
+        }
+      }
+    }
+  }
+
+  static Future scheduleNotification(
+      {int id = 0,
+      String? title,
+      String? body,
+      String? payLoad,
+      required DateTime scheduledNotificationDateTime}) async {
+    timeZone.initializeTimeZones();
+
+    return flutterLocalNotificationsPlugin.zonedSchedule(
+        id,
+        title,
+        body,
+        timeZone.TZDateTime.from(
+          scheduledNotificationDateTime,
+          timeZone.local,
+        ),
+        notificationDetails(),
+        androidAllowWhileIdle: true,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        payload: payLoad);
   }
 
   static Future<void> showNotification(RemoteMessage message) async {
@@ -128,5 +177,12 @@ final class AppLocalNotificationHelper {
         ),
       ),
     );
+  }
+
+  static notificationDetails() {
+    return const NotificationDetails(
+        android: AndroidNotificationDetails('channelId', 'channelName',
+            importance: Importance.max),
+        iOS: DarwinNotificationDetails());
   }
 }

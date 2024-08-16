@@ -17,27 +17,26 @@ class FavoritesCubit extends Cubit<FavoritesState> with BaseCubit {
 
   final IFavoritesRepository _favoritesRepository;
   late List<BookEntity> favoriteBooks;
+  late List<String> publishers;
 
   @override
   Future<void> initialize() async {
-    await getFavoriteBooks();
+    await getFavoriteBooksFromCache();
   }
 
-  Future<void> getFavoriteBooks() async {
+  Future<void> getFavoriteBooksFromCache() async {
     safeEmit(FavoritesState.loading());
 
-    final response = await _favoritesRepository.getFavoriteBooks();
+    final response = await _favoritesRepository.getFavoriteBooksFromCache();
 
     if (response.isNullOrEmpty == true) {
-      AppLogger.call(
-        title: 'Favorite Book Null Or Empty',
-      );
-
-      favoriteBooks = response!;
+      favoriteBooks = [];
+      _fillPublishers();
       safeEmit(
           FavoritesState.failure('Favoriye alınmış kitap bulunmamaktadır.'));
     } else {
       favoriteBooks = response!;
+      _fillPublishers();
       safeEmit(FavoritesState.success(favoriteBooks));
     }
   }
@@ -56,18 +55,41 @@ class FavoritesCubit extends Cubit<FavoritesState> with BaseCubit {
     }
 
     safeEmit(FavoritesState.success(favoriteBooks));
-    await getFavoriteBooks();
+    await getFavoriteBooksFromCache();
   }
 
   void _addFavorites(BookEntity book) {
     favoriteBooks.add(book);
     log('Add Favorites ${favoriteBooks.length}');
     // AppLogger.call(title: 'Add Favorites', value: favoriteBooks);
-    _favoritesRepository.updateFavorites(favoriteBooks);
+    _favoritesRepository.updateFavoritesCache(favoriteBooks);
   }
 
   void _removeFavorites(BookEntity book) {
     favoriteBooks.remove(book);
-    _favoritesRepository.updateFavorites(favoriteBooks);
+    _favoritesRepository.updateFavoritesCache(favoriteBooks);
+  }
+
+  void _fillPublishers() {
+    publishers = [];
+
+    /// Eğer bookList boş ise çalışmayacak bu yüzden ekstra kontrol eklemiyoruz.
+
+    favoriteBooks.forEach(
+      (book) {
+        if (publishers?.contains(book.publisher) == false) {
+          publishers?.add(book.publisher!);
+        }
+      },
+    );
+  }
+
+  List<BookEntity> getBooksByPublisher(
+    String publisher,
+  ) {
+    return favoriteBooks
+        .where((book) => book.publisher == publisher)
+        .whereType<BookEntity>()
+        .toList();
   }
 }

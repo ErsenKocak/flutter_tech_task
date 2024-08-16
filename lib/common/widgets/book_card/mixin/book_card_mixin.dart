@@ -1,11 +1,15 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_tech_task/common/widgets/book_card/view/book_card_widget.dart';
 import 'package:flutter_tech_task/core/init/service_locator/service_locator_provider.dart';
 import 'package:flutter_tech_task/features/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
+import 'package:flutter_tech_task/features/notification/presentation/cubit/notification_cubit.dart';
 
 mixin BookCardMixin on State<BookCardWidget> {
   late FavoritesCubit _favoritesCubit;
+  late NotificationCubit _notificationCubit;
 
   @override
   void initState() {
@@ -15,6 +19,7 @@ mixin BookCardMixin on State<BookCardWidget> {
 
   Future<void> initializeMixin() async {
     _favoritesCubit = ServiceLocatorProvider.provide<FavoritesCubit>();
+    _notificationCubit = ServiceLocatorProvider.provide<NotificationCubit>();
     await initializeServices();
   }
 
@@ -24,7 +29,15 @@ mixin BookCardMixin on State<BookCardWidget> {
     return _favoritesCubit.checkBookIsFavorite(book);
   }
 
-  void onTapFavorite(BookEntity book) {
-    _favoritesCubit.onTapFavorite(book);
+  bool checkBookHasNotification(BookEntity book) {
+    return _notificationCubit.checkBookHasNotification(book);
+  }
+
+  Future<void> onTapNotification(BookEntity book) async {
+    await _notificationCubit.onTapSetNotification(book);
+  }
+
+  Future<void> onTapFavorite(BookEntity book) async {
+    await _favoritesCubit.onTapFavorite(book);
   }
 }

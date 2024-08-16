@@ -17,6 +17,11 @@ import 'package:flutter_tech_task/features/home/data/services/i_book_service.dar
 import 'package:flutter_tech_task/features/home/domain/repositories/book_repository.dart';
 import 'package:flutter_tech_task/features/home/data/repositories/i_book_repository.dart';
 import 'package:flutter_tech_task/features/home/presentation/cubit/home_cubit.dart';
+import 'package:flutter_tech_task/features/notification/data/repositories/i_notification_repository.dart';
+import 'package:flutter_tech_task/features/notification/data/services/i_notification_local_service.dart';
+import 'package:flutter_tech_task/features/notification/data/services/notification_local_service.dart';
+import 'package:flutter_tech_task/features/notification/domain/repositories/notification_repository.dart';
+import 'package:flutter_tech_task/features/notification/presentation/cubit/notification_cubit.dart';
 import 'package:flutter_tech_task/helper/network/internet_connection_check/internet_connection_check_helper.dart';
 import 'package:get_it/get_it.dart';
 
@@ -64,6 +69,14 @@ Future<void> initalize() async {
     ..registerLazySingleton<FavoritesCubit>(
         () => FavoritesCubit(_serviceLocator<IFavoritesRepository>()))
 
+    // #Notifications
+    ..registerLazySingleton<INotificationLocalService>(
+        () => NotificationLocalService())
+    ..registerLazySingleton<INotificationRepository>(() =>
+        NotificationRepository(_serviceLocator<INotificationLocalService>()))
+    ..registerLazySingleton<NotificationCubit>(
+        () => NotificationCubit(_serviceLocator<INotificationRepository>()))
+
     // #Book
     ..registerLazySingleton<IBookService>(
         () => BookService(_serviceLocator<NetworkClient>()))
@@ -90,6 +103,8 @@ Future<void> _initializeOtherDependencies() async {
   await provide<ThemeCubit>().initialize();
   await provide<IFavoritesLocalService>().initialize();
   await provide<FavoritesCubit>().initialize();
+  await provide<INotificationLocalService>().initialize();
+  await provide<NotificationCubit>().initialize();
 }
 
 T provide<T extends Object>() {

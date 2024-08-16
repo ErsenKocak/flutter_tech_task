@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
@@ -9,12 +11,15 @@ import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/features/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
+import 'package:flutter_tech_task/features/notification/presentation/cubit/notification_cubit.dart';
 import 'package:flutter_tech_task/generated/assets.gen.dart';
 
 class BookCardWidget extends StatefulWidget {
-  const BookCardWidget({super.key, required this.book});
+  const BookCardWidget(
+      {super.key, required this.book, this.showNotificationIcon = false});
 
   final BookEntity book;
+  final bool? showNotificationIcon;
 
   @override
   State<BookCardWidget> createState() => _BookCardWidgetState();
@@ -56,17 +61,47 @@ class _BookCardWidgetState extends State<BookCardWidget> with BookCardMixin {
   Widget get _buildSuffixWidget {
     return BlocBuilder<FavoritesCubit, FavoritesState>(
       builder: (context, state) {
+        return Row(
+          children: [
+            _buildNotificationIcon,
+            4.sbxw,
+            _buildFavoriteIcon,
+          ],
+        );
+      },
+    );
+  }
+
+  Widget get _buildNotificationIcon {
+    if (checkBookIsFavorite(widget.book) == false) return const SizedBox();
+
+    return BlocBuilder<NotificationCubit, NotificationState>(
+      builder: (context, state) {
+        log('NotificationCubit RENDER');
         return AppSvgWidget(
-          path: checkBookIsFavorite(widget.book)
-              ? Assets.icons.general.iconLikeFill.path
-              : Assets.icons.general.iconLike.path,
-          color: checkBookIsFavorite(widget.book)
+          path: checkBookHasNotification(widget.book)
+              ? Assets.icons.bottomBar.iconBottomBarNotificationActive.path
+              : Assets.icons.bottomBar.iconBottomBarNotification.path,
+          color: checkBookHasNotification(widget.book)
               ? AppLightColors.primaryPink
               : AppThemes
                   .currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
-          onTap: () => onTapFavorite(widget.book),
+          onTap: () async => await onTapNotification(widget.book),
         );
       },
+    );
+  }
+
+  Widget get _buildFavoriteIcon {
+    return AppSvgWidget(
+      path: checkBookIsFavorite(widget.book)
+          ? Assets.icons.general.iconLikeFill.path
+          : Assets.icons.general.iconLike.path,
+      color: checkBookIsFavorite(widget.book)
+          ? AppLightColors.primaryPink
+          : AppThemes
+              .currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
+      onTap: () async => await onTapFavorite(widget.book),
     );
   }
 

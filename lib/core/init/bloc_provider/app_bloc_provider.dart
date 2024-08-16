@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tech_task/common/cubit/theme/theme_cubit.dart';
 import 'package:flutter_tech_task/core/init/service_locator/service_locator_provider.dart';
 import 'package:flutter_tech_task/features/favorites/presentation/cubit/favorites_cubit.dart';
+import 'package:flutter_tech_task/features/notification/presentation/cubit/notification_cubit.dart';
 import 'package:provider/single_child_widget.dart';
 
 class AppBlocProvider {
@@ -32,6 +33,9 @@ class AppBlocProvider {
 
     BlocProvider.value(
       value: ServiceLocatorProvider.provide<FavoritesCubit>(),
+    ),
+    BlocProvider.value(
+      value: ServiceLocatorProvider.provide<NotificationCubit>(),
     ),
   ];
 

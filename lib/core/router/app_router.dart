@@ -12,6 +12,7 @@ import 'package:flutter_tech_task/core/router/transition_builder.dart';
 import 'package:flutter_tech_task/features/book_detail/presentation/cubit/book_detail_cubit.dart';
 import 'package:flutter_tech_task/features/book_detail/presentation/view/book_detail_view.dart';
 import 'package:flutter_tech_task/features/bottom_bar/view/bottom_bar_view.dart';
+import 'package:flutter_tech_task/features/favorites/presentation/view/favorites_view.dart';
 import 'package:flutter_tech_task/features/home/presentation/cubit/home_cubit.dart';
 import 'package:flutter_tech_task/features/home/presentation/view/home_view.dart';
 import 'package:flutter_tech_task/features/settings/presentation/view/settings_view.dart';
@@ -46,6 +47,12 @@ class AppRouter {
                   BlocProvider.value(
                       value: ServiceLocatorProvider.provide<HomeCubit>())
                 ]),
+            _generateGoRoute(
+              route: AppRoutes.Favorites.path,
+              isShellRoute: true,
+              view: (parameter) => FavoritesView(),
+              routeEffect: AppRouteEffect.none,
+            ),
             _generateGoRoute(
               route: AppRoutes.Settings.path,
               isShellRoute: true,
@@ -160,6 +167,14 @@ class AppRouter {
     return router.pop(value);
   }
 
-  static String? currentRoute(BuildContext context) =>
-      GoRouterState.of(context).name;
+  static String? currentRoute(BuildContext context) {
+    final RouteMatch lastMatch =
+        router.routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : router.routerDelegate.currentConfiguration;
+    final String location = matchList.uri.toString();
+
+    return location;
+  }
 }
