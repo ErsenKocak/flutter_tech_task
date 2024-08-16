@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
@@ -12,6 +13,7 @@ import 'package:flutter_tech_task/features/favorites/presentation/cubit/favorite
 import 'package:flutter_tech_task/features/favorites/presentation/mixin/favorites_mixin.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/features/home/presentation/widgets/home_shimmer_widget.dart';
+import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 
 class FavoritesView extends StatefulWidget {
   const FavoritesView({super.key});
@@ -31,7 +33,7 @@ class _FavoritesViewState extends State<FavoritesView> with FavoritesMixin {
 
   get _buildAppBar {
     return AppBarWidget(
-      titleText: 'Favori Kitaplarım',
+      titleText: LocaleKeys.Favorites_MyFavoriteBooks.tr(),
     );
   }
 

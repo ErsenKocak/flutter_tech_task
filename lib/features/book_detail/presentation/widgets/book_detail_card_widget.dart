@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tech_task/common/extensions/null_check/null_check_extension.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
@@ -5,12 +6,14 @@ import 'package:flutter_tech_task/common/functions/date/app_date_functions.dart'
 import 'package:flutter_tech_task/common/widgets/app_svg/app_svg_widget.dart';
 import 'package:flutter_tech_task/core/constants/application/application.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
+import 'package:flutter_tech_task/core/constants/font_weight/app_font_weight.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/enums/date/date_format_types.dart';
 import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/common/widgets/book_card/view/book_card_widget.dart';
 import 'package:flutter_tech_task/generated/assets.gen.dart';
+import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 
 class BookDetailCardWidget extends StatelessWidget {
   const BookDetailCardWidget({super.key, required this.book});
@@ -46,70 +49,11 @@ class BookDetailCardWidget extends StatelessWidget {
     );
   }
 
-  Widget get _buildPrefixWidget {
-    return Container(
-      padding: EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: AppLightColors.purple,
-      ),
-      child: AppSvgWidget(
-        path: Assets.icons.general.icBook.path,
-        color: AppLightColors.purple60,
-      ),
-    );
-  }
-
-  Widget get _buildSuffixWidget {
-    return AppSvgWidget(
-      path: Assets.icons.general.iconLike.path,
-      color:
-          AppThemes.currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
-    );
-  }
-
-  Widget get _buildCardBody {
-    return Expanded(
-      flex: 4,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildBookTitle,
-          _buildBookSubTitle,
-        ],
-      ),
-    );
-  }
-
-  Widget get _buildBookTitle {
-    return Text(
-      book.title ?? '',
-      style: Application.applicationContext.textTheme.body.smallSemibold,
-    );
-  }
-
-  Widget get _buildBookSubTitle {
-    return Row(
-      children: [
-        Text(
-          book.year.toString(),
-          style: Application.applicationContext.textTheme.xSmall.medium
-              .copyWith(color: AppLightColors.dark500),
-        ),
-        Text(
-          ' - ${book.pages} Sayfa',
-          style: Application.applicationContext.textTheme.xSmall.regular
-              .copyWith(color: AppLightColors.dark400),
-        ),
-      ],
-    );
-  }
-
   Widget get _buildNotes {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildInformationTitle('Notes'),
+        _buildInformationTitle(LocaleKeys.BookDetail_Notes.tr()),
         4.sbxh,
         _buildNotesBody,
       ],
@@ -134,7 +78,7 @@ class BookDetailCardWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildInformationTitle('Villains'),
+        _buildInformationTitle(LocaleKeys.BookDetail_Villains.tr()),
         4.sbxh,
         _buildVillainsBody,
       ],
@@ -174,7 +118,7 @@ class BookDetailCardWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildInformationTitle('Publisher'),
+        _buildInformationTitle(LocaleKeys.BookDetail_Publisher.tr()),
         4.sbxh,
         Text(
           '- ${book.publisher}',
@@ -189,7 +133,7 @@ class BookDetailCardWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildInformationTitle('Created Date'),
+        _buildInformationTitle(LocaleKeys.BookDetail_CreatedDate.tr()),
         4.sbxh,
         Text(
           '- ${_getDateLabel(book.createdAt)}',
@@ -215,7 +159,8 @@ class BookDetailCardWidget extends StatelessWidget {
   Widget _buildInformationTitle(String title) {
     return Text(
       title,
-      style: Application.applicationContext.textTheme.body.smallSemibold,
+      style: AppThemes.currentTheme.textTheme.bodySmall
+          ?.copyWith(fontWeight: AppFontWeight.bold.value),
     );
   }
 }

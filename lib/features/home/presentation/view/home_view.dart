@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,6 +23,7 @@ import 'package:flutter_tech_task/features/home/presentation/mixin/home_mixin.da
 import 'package:flutter_tech_task/common/widgets/book_card/view/book_card_widget.dart';
 import 'package:flutter_tech_task/features/home/presentation/widgets/home_shimmer_widget.dart';
 import 'package:flutter_tech_task/generated/assets.gen.dart';
+import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 import 'package:flutter_tech_task/helper/notification/local_notification/local_notification_helper.dart';
 
 class HomeView extends StatefulWidget {
@@ -43,7 +45,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
 
   get _buildAppbar {
     return AppBarWidget(
-      titleText: 'Kitaplar',
+      titleText: LocaleKeys.Home_Books.tr(),
     );
   }
 
@@ -75,7 +77,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
 
   Widget get _buildSearchInput {
     return AppSearchInput(
-      hintText: 'Kitap ismi',
+      hintText: LocaleKeys.Home_BookName.tr(),
       controller: searchInputController,
     );
   }
@@ -126,7 +128,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
   /// Aynı zamanda da hata mesajını UI'a taşımak istersek State üzerinden parametre vererek taşıyoruz
   Widget _buildEmptyWidget({String? errorMessage}) {
     return AppEmptyWidget(
-      buttonText: 'Yenile',
+      buttonText: LocaleKeys.Global_Refresh.tr(),
       title: errorMessage,
       onPress: () async => await getBooks(),
     );

@@ -1,12 +1,14 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_tech_task/common/base/cubit/base_cubit.dart';
 import 'package:flutter_tech_task/common/base/cubit/base_state.dart';
 import 'package:flutter_tech_task/common/extensions/null_check/null_check_extension.dart';
 import 'package:flutter_tech_task/common/logger/app_logger.dart';
 import 'package:flutter_tech_task/features/favorites/data/repositories/i_favorites_repository.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
+import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'favorites_state.dart';
@@ -32,8 +34,8 @@ class FavoritesCubit extends Cubit<FavoritesState> with BaseCubit {
     if (response.isNullOrEmpty == true) {
       favoriteBooks = [];
       _fillPublishers();
-      safeEmit(
-          FavoritesState.failure('Favoriye alınmış kitap bulunmamaktadır.'));
+      safeEmit(FavoritesState.failure(
+          LocaleKeys.Favorites_ThereAreNoFavoritedBooks.tr()));
     } else {
       favoriteBooks = response!;
       _fillPublishers();

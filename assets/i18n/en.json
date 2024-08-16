@@ -39,6 +39,7 @@
     "Stop": "Stop",
     "Edit": "Edit",
     "Person": "Person",
+    "Refresh": "Refresh",
     "OperationCompletedSuccessfully": "Operation completed successfully"
   },
   "BottomNavigationBar": {
@@ -46,6 +47,40 @@
     "Favorites": "Favorites",
     "Notifications": "Notifications",
     "Settings": "Settings"
+  },
+  "Home": {
+    "Books": "Books",
+    "BookName": "Book Name",
+    "Page": "Pages"
+  },
+  "BookDetail": {
+    "BookDetails": "Book Details",
+    "Notes": "Notes",
+    "Villains": "Villains",
+    "Publisher": "Publisher",
+    "CreatedDate": "Created Date"
+  },
+  "Favorites": {
+    "MyFavoriteBooks": "My Favorite Books",
+    "ThereAreNoFavoritedBooks": "There are no favorited books."
+  },
+  "Notification": {
+    "NotificationDate": "Notification Date",
+    "NotificationHour": "Notification Hour",
+    "ReminderNotificationTitle": "Favorite Reminder!",
+    "ReminderNotificationBody": "Don't forget to come back for {bookName}"
+  },
+  "Theme": {
+    "Light": "Light",
+    "Dark": "Dark",
+    "System": "System"
+  },
+  "Settings": {
+    "Settings": "Settings",
+    "Language": "Language",
+    "LanguageSelection": "Language Selection",
+    "Theme": "Theme",
+    "ThemeSelection": "Theme Selection"
   },
   "ErrorMessages": {
     "GlobalError": "Sorry, something went wrong.",

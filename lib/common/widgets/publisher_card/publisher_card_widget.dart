@@ -31,7 +31,10 @@ class PublisherCardWidget extends StatelessWidget {
           lightColor: AppLightColors.white,
           darkColor: AppDarkColors.secondaryDarkColor),
       borderRadius: BorderRadius.circular(12),
-      border: Border.all(color: AppLightColors.darkWhite),
+      border: Border.all(
+          color: AppThemes.getColorByBrightness(
+              lightColor: AppLightColors.darkWhite,
+              darkColor: AppDarkColors.secondaryDarkColor)),
     );
   }
 
@@ -45,7 +48,7 @@ class PublisherCardWidget extends StatelessWidget {
           children: [
             Text(
               publisher,
-              style: Application.applicationContext.textTheme.body.smallMedium,
+              style: AppThemes.currentTheme.textTheme.bodySmall,
             ),
           ],
         ),

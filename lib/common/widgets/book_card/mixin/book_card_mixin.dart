@@ -6,10 +6,13 @@ import 'package:flutter_tech_task/core/init/service_locator/service_locator_prov
 import 'package:flutter_tech_task/features/favorites/presentation/cubit/favorites_cubit.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/features/notification/presentation/cubit/notification_cubit.dart';
+import 'package:flutter_tech_task/helper/color/color_schema_entity.dart';
+import 'package:flutter_tech_task/helper/color/random_color_helper.dart';
 
 mixin BookCardMixin on State<BookCardWidget> {
   late FavoritesCubit _favoritesCubit;
   late NotificationCubit _notificationCubit;
+  late ColorSchemaEntity colorSchema;
 
   @override
   void initState() {
@@ -20,6 +23,7 @@ mixin BookCardMixin on State<BookCardWidget> {
   Future<void> initializeMixin() async {
     _favoritesCubit = ServiceLocatorProvider.provide<FavoritesCubit>();
     _notificationCubit = ServiceLocatorProvider.provide<NotificationCubit>();
+    colorSchema = RandomColorHelper.getRandomColorSchema;
     await initializeServices();
   }
 

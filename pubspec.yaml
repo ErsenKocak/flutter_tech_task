@@ -38,6 +38,8 @@ dependencies:
   #Widget
   stylish_bottom_bar: ^1.1.0
   shimmer_pro: ^0.0.6
+  calendar_date_picker2: ^1.1.5
+  flutter_cupertino_date_picker_fork: ^1.0.7
 
   # State Management
   flutter_bloc: ^8.1.6
@@ -301,6 +303,7 @@ flutter:
     - assets/icons/app_bar/
     - assets/icons/bottom_bar/
     - assets/icons/bottom_sheet/
+    - assets/icons/settings/
     - assets/images/
     - assets/images/bottom_sheets/
     - assets/images/widgets/

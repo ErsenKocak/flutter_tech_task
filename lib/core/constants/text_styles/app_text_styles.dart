@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_tech_task/core/constants/colors/app_dark_colors.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
 import 'package:flutter_tech_task/core/constants/font_family/app_font_family.dart';
 import 'package:flutter_tech_task/core/constants/font_weight/app_font_weight.dart';
+import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 
 class AppTextStyles {
   static TextStyle generate({

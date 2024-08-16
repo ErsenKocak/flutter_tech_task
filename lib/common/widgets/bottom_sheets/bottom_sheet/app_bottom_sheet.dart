@@ -125,27 +125,12 @@ class AppBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               title != null
-                  ? titlePrefix ??
-                      Assets.icons.bottomSheet.iconClose
-                          .svg(color: Colors.transparent, height: 25.h)
-                  : const SizedBox(),
-              title != null
                   ? Text(
                       title,
                       style: AppThemes.currentTheme.textTheme.bodyMedium
                           ?.copyWith(fontWeight: AppFontWeight.medium.value),
                     )
                   : const SizedBox(),
-              titleSuffix ??
-                  GestureDetector(
-                    onTap: () => AppRouter.pop(),
-                    child: Assets.icons.bottomSheet.iconClose.svg(
-                      color: AppThemes.brightness == Brightness.light
-                          ? AppLightColors.black
-                          : null,
-                      height: 25.h,
-                    ),
-                  ),
             ],
           ),
         ],

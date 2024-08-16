@@ -1,6 +1,6 @@
 // DO NOT EDIT. This is code generated via package:easy_localization/generate.dart
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const Global_Login = 'Global.Login';
   static const Global_Save = 'Global.Save';
   static const Global_Send = 'Global.Send';
@@ -40,22 +40,48 @@ abstract class LocaleKeys {
   static const Global_Stop = 'Global.Stop';
   static const Global_Edit = 'Global.Edit';
   static const Global_Person = 'Global.Person';
-  static const Global_OperationCompletedSuccessfully =
-      'Global.OperationCompletedSuccessfully';
+  static const Global_Refresh = 'Global.Refresh';
+  static const Global_OperationCompletedSuccessfully = 'Global.OperationCompletedSuccessfully';
   static const Global = 'Global';
   static const BottomNavigationBar_Home = 'BottomNavigationBar.Home';
   static const BottomNavigationBar_Favorites = 'BottomNavigationBar.Favorites';
-  static const BottomNavigationBar_Notifications =
-      'BottomNavigationBar.Notifications';
+  static const BottomNavigationBar_Notifications = 'BottomNavigationBar.Notifications';
   static const BottomNavigationBar_Settings = 'BottomNavigationBar.Settings';
   static const BottomNavigationBar = 'BottomNavigationBar';
+  static const Home_Books = 'Home.Books';
+  static const Home_BookName = 'Home.BookName';
+  static const Home_Page = 'Home.Page';
+  static const Home = 'Home';
+  static const BookDetail_BookDetails = 'BookDetail.BookDetails';
+  static const BookDetail_Notes = 'BookDetail.Notes';
+  static const BookDetail_Villains = 'BookDetail.Villains';
+  static const BookDetail_Publisher = 'BookDetail.Publisher';
+  static const BookDetail_CreatedDate = 'BookDetail.CreatedDate';
+  static const BookDetail = 'BookDetail';
+  static const Favorites_MyFavoriteBooks = 'Favorites.MyFavoriteBooks';
+  static const Favorites_ThereAreNoFavoritedBooks = 'Favorites.ThereAreNoFavoritedBooks';
+  static const Favorites = 'Favorites';
+  static const Notification_NotificationDate = 'Notification.NotificationDate';
+  static const Notification_NotificationHour = 'Notification.NotificationHour';
+  static const Notification_ReminderNotificationTitle = 'Notification.ReminderNotificationTitle';
+  static const Notification_ReminderNotificationBody = 'Notification.ReminderNotificationBody';
+  static const Notification = 'Notification';
+  static const Theme_Light = 'Theme.Light';
+  static const Theme_Dark = 'Theme.Dark';
+  static const Theme_System = 'Theme.System';
+  static const Theme = 'Theme';
+  static const Settings_Settings = 'Settings.Settings';
+  static const Settings_Language = 'Settings.Language';
+  static const Settings_LanguageSelection = 'Settings.LanguageSelection';
+  static const Settings_Theme = 'Settings.Theme';
+  static const Settings_ThemeSelection = 'Settings.ThemeSelection';
+  static const Settings = 'Settings';
   static const ErrorMessages_GlobalError = 'ErrorMessages.GlobalError';
   static const ErrorMessages_NotEmpty = 'ErrorMessages.NotEmpty';
   static const ErrorMessages_NotShort = 'ErrorMessages.NotShort';
   static const ErrorMessages_InvalidEmail = 'ErrorMessages.InvalidEmail';
   static const ErrorMessages_NotEqual = 'ErrorMessages.NotEqual';
-  static const ErrorMessages_NotStrongPassword =
-      'ErrorMessages.NotStrongPassword';
+  static const ErrorMessages_NotStrongPassword = 'ErrorMessages.NotStrongPassword';
   static const ErrorMessages_SessionExpired = 'ErrorMessages.SessionExpired';
   static const ErrorMessages_PleaseReLogin = 'ErrorMessages.PleaseReLogin';
   static const ErrorMessages_EmptyWidgetInfo = 'ErrorMessages.EmptyWidgetInfo';
@@ -113,4 +139,5 @@ abstract class LocaleKeys {
   static const Languages_German = 'Languages.German';
   static const Languages_French = 'Languages.French';
   static const Languages = 'Languages';
+
 }
