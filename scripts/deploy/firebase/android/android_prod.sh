@@ -1,0 +1,1 @@
+cd android; fastlane android_firebase_distribution_prod; cd ..;

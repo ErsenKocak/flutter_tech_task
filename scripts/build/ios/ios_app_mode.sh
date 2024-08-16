@@ -1,0 +1,1 @@
+cd ios; node "../scripts/build/ios/javascript/ios_run_script.js"; node "../scripts/build/ios/javascript/ios_run_script.js"; cd ..;

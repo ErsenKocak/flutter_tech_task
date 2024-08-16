@@ -1,0 +1,316 @@
+name: flutter_tech_task
+description: "Flutter Tech Task For One Dose Health"
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+   # UI
+  flutter_screenutil: ^5.9.3
+  flutter_svg: ^2.0.10
+
+  #Widget
+  stylish_bottom_bar: ^1.1.0
+  shimmer_pro: ^0.0.6
+
+  # State Management
+  flutter_bloc: ^8.1.6
+  
+  # Assets
+  flutter_gen: ^5.6.0
+
+  # Model - Entity
+  freezed: ^2.5.2
+  freezed_annotation: ^2.4.3
+  json_annotation: ^4.9.0
+
+  # Network
+  dio: ^5.5.0
+  pretty_dio_logger: ^1.3.1
+  dio_smart_retry: ^6.0.0
+  internet_connection_checker: ^1.0.0
+  connectivity_plus: ^6.0.3
+  
+  # Routing
+  go_router: ^14.2.3
+
+  # Dependency Injection
+  get_it: ^7.7.0
+  
+  # Localization
+  easy_localization: ^3.0.7
+
+  # Log
+  logger: ^2.3.0
+  chucker_flutter: ^1.7.2
+
+  # Database
+  hive: ^4.0.0-dev.2
+  isar_flutter_libs: ^4.0.0-dev.13
+  path_provider: ^2.1.3
+
+  # # Firebase
+  firebase_core: ^3.2.0
+  # firebase_analytics: ^11.2.0
+  # firebase_crashlytics: ^4.0.3
+  
+
+  # Notification
+  flutter_local_notifications: ^17.2.1
+  firebase_messaging: ^15.0.3
+
+  # Working with URL
+  url_launcher: ^6.3.0
+
+  #Date Processing
+  jiffy: ^6.3.1
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.6
+
+  vector_graphics: any
+  provider: any
+  collection: any
+  uuid: any
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Generate
+  build_runner: ^2.4.11
+  flutter_gen_runner: ^5.6.0
+  json_serializable: ^6.8.0
+
+  
+# dart pub global activate rps
+scripts:
+  
+  generator:
+    localization: "./scripts/generator/locale_keys_generate.sh"
+    build_runner: "./scripts/generator/build_runner.sh"
+    build_runner_watch: "./scripts/generator/build_runner_watch.sh"
+    fluttergen: "fluttergen"
+  
+
+  deploy:
+    firebase:
+      ios:
+        dev: |
+
+          rps build ios app
+          rps firebase ios dev
+
+        test: |
+
+          rps build ios app
+          rps firebase ios test
+
+        uat: |
+
+          rps build ios app
+          rps firebase ios uat
+
+        prod: |
+
+          rps build ios app
+          rps firebase ios prod
+      
+      android:
+        dev: rps firebase android dev
+        test: rps firebase android test
+        uat: rps firebase android uat
+        prod: rps firebase android prod
+          
+          
+
+  build:  
+    apk: "flutter build apk"
+    apk_release: "flutter build apk --release"
+    appbundle_release: "flutter build appbundle --release"
+    ios:
+      appmode: "./scripts/build/ios/ios_app_mode.sh"
+      app: |
+      
+        rps build ios appmode
+        flutter build ios --release
+
+  firebase:
+    ios:
+      dev: "./scripts/deploy/firebase/ios/ios_dev.sh"
+      test: "./scripts/deploy/firebase/ios/ios_test.sh"
+      uat: "./scripts/deploy/firebase/ios/ios_uat.sh"
+      prod: "./scripts/deploy/firebase/ios/ios_prod.sh"
+    
+    android:
+      dev: "./scripts/deploy/firebase/android/android_dev.sh"
+      test: "./scripts/deploy/firebase/android/android_test.sh"
+      uat: "./scripts/deploy/firebase/android/android_uat.sh"
+      prod: "./scripts/deploy/firebase/android/android_prod.sh"
+
+
+
+flutter_gen:
+  output: lib/generated/ # Optional (default: lib/gen/)
+  line_length: 120 # Optional (default: 80)
+  
+  integrations:
+    flutter_svg: true
+    flare_flutter: true
+    rive: true
+    lottie: true
+    
+  
+  assets:
+    enabled: true
+
+  # Linter
+  very_good_analysis: ^6.0.0
+
+
+  # dart pub global activate rps
+  scripts:
+    
+    generator:
+      localization: "./scripts/generator/locale_keys_generate.sh"
+      build_runner: "./scripts/generator/build_runner.sh"
+      fluttergen: "fluttergen"
+    
+
+    deploy:
+      firebase:
+        ios:
+          dev: |
+
+            rps build ios app
+            rps firebase ios dev
+
+          test: |
+
+            rps build ios app
+            rps firebase ios test
+
+          uat: |
+
+            rps build ios app
+            rps firebase ios uat
+
+          prod: |
+
+            rps build ios app
+            rps firebase ios prod
+        
+        android:
+          dev: rps firebase android dev
+          test: rps firebase android test
+          uat: rps firebase android uat
+          prod: rps firebase android prod
+            
+            
+
+    build:  
+      apk: "flutter build apk"
+      apk_release: "flutter build apk --release"
+      appbundle_release: "flutter build appbundle --release"
+      ios:
+        appmode: "./scripts/build/ios/ios_app_mode.sh"
+        app: |
+        
+          rps build ios appmode
+          flutter build ios --release
+
+    firebase:
+      ios:
+        dev: "./scripts/deploy/firebase/ios/ios_dev.sh"
+        test: "./scripts/deploy/firebase/ios/ios_test.sh"
+        uat: "./scripts/deploy/firebase/ios/ios_uat.sh"
+        prod: "./scripts/deploy/firebase/ios/ios_prod.sh"
+      
+      android:
+        dev: "./scripts/deploy/firebase/android/android_dev.sh"
+        test: "./scripts/deploy/firebase/android/android_test.sh"
+        uat: "./scripts/deploy/firebase/android/android_uat.sh"
+        prod: "./scripts/deploy/firebase/android/android_prod.sh"
+
+
+
+  flutter_gen:
+    output: lib/generated/ # Optional (default: lib/gen/)
+    line_length: 120 # Optional (default: 80)
+    
+    integrations:
+      flutter_svg: true
+      flare_flutter: true
+      rive: true
+      lottie: true
+      
+    
+    assets:
+      enabled: true
+
+
+
+
+
+    # Linter
+    very_good_analysis: ^6.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  assets:
+    - .env.json
+    - assets/i18n/
+    - assets/icons/
+    - assets/icons/general/
+    - assets/icons/app_bar/
+    - assets/icons/bottom_bar/
+    - assets/icons/bottom_sheet/
+    - assets/images/
+    - assets/images/bottom_sheets/
+    - assets/images/widgets/
+
+  fonts:
+    - family: Euclid Circular B
+      fonts:
+        - asset: assets/fonts/euclid-circular/Light.ttf
+        - asset: assets/fonts/euclid-circular/Regular.ttf
+        - asset: assets/fonts/euclid-circular/Medium.ttf
+        - asset: assets/fonts/euclid-circular/SemiBold.ttf
+        - asset: assets/fonts/euclid-circular/Bold.ttf
+  

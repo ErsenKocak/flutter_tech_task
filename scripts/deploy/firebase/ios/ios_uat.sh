@@ -1,0 +1,1 @@
+cd ios; fastlane ios_firebase_distribution_uat; cd ..;
