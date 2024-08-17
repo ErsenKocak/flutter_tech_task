@@ -28,7 +28,6 @@
 - [Push Notification(Remote))](https://pub.dev/packages/firebase_messaging)
 
 
-
 ## Boilerplate
 
 ## Tasarım yaklaşımı
@@ -36,7 +35,7 @@
 - Kullanılan Widget'ların parçalanması ve gerekli yerlerde tekrar kullanılmasını amaçlayan Atomic Design yaklaşımı referans alınmıştır.
 Amaç; Kod Okunabilirliği, Widgeti'ların tekrar tekrar kullanılabilme opsiyonu ve dinamikleştirmek.Atomic Design için örnek döküman;
 - [Atomic Design](https://itnext.io/atomic-design-with-flutter-11f6fcb62017)
-- Kullanılan Widget'lar UI bazlı veya Uygulama geneli olma durumuna göre View dosyasının altında veya Core Katmanına eklendi
+- Kullanılan Widget'lar UI bazlı veya Uygulama geneli olma durumuna göre Presentation --> Widgets dosyasının altında veya Common Katmanına eklendi
 
 ## Architecture
 
@@ -65,11 +64,10 @@ Amaç; Kod Okunabilirliği, Widgeti'ların tekrar tekrar kullanılabilme opsiyon
                 - "Cubit(State Management)": UI ve UI bağımsız business kodlarının bulunduğu katmandır. UI'ı kontrol etmekte ve yenileme ihtiyacını karşılarlar. Aynı zaman da da "Repository" Katmanına erişilir(Abstract class üzerinden).
 
 
-    - Katmanlar arasında haberleşme ve bağımlılık azaltımı için Dependency Injection(Constructor Injection) prensibi kullanılır. İlgili katmanların Abstract(soyut) yapıları bulunmaktadır. Injection sırasında Abstract yapı inject edilir. Abstract inject için instance üretimi sırasında Abstract class istenme durumu için Contrete class verilir. Bu sayede ileride olabilecek değişikliklerde kod silmek, kodları güncellemek yerine aynı Abstract yapı için yeni bir concrete verildiğinde uygulama iş akışına müdahale etmeden değiştirilmiş aynı zamanda da SOLID Prensiplerine uygun bir geliştirme olmuş olur. Örn: (i_book_repository.dart,book_repository.dart), (i_book_service.dart, book_service.dart), home_cubit.dart
+- Katmanlar arasında haberleşme ve bağımlılık azaltımı için Dependency Injection(Constructor Injection) prensibi kullanılır. İlgili katmanların Abstract(soyut) yapıları bulunmaktadır. Injection sırasında Abstract yapı inject edilir. Abstract inject için instance üretimi sırasında Abstract class istenme durumu için Contrete class verilir. Bu sayede ileride olabilecek değişikliklerde kod silmek, kodları güncellemek yerine aynı Abstract yapı için yeni bir concrete verildiğinde uygulama iş akışına müdahale etmeden değiştirilmiş aynı zamanda da SOLID Prensiplerine uygun bir geliştirme olmuş olur. Örn: (i_book_repository.dart,book_repository.dart), (i_book_service.dart, book_service.dart), home_cubit.dart
 
-    - Instance üretimi ve yönetimi için genelde Singleton yapılar kullanılmaktadır. Private constructor ve instance null chek işlemi ile manuel olarak yapılabilir. Get_it gibi yardımcı kütüphaneler ile bu süreç otomatik halede getirilebilir. Örn: service_locator.dart
+- Instance üretimi ve yönetimi için genelde Singleton yapılar kullanılmaktadır. Private constructor ve instance null chek işlemi ile manuel olarak yapılabilir. Get_it gibi yardımcı kütüphaneler ile bu süreç otomatik halede getirilebilir. Örn: service_locator.dart
 
-    - 
 
 
   İş akışı;
