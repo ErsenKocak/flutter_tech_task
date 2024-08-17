@@ -97,16 +97,16 @@ final class AppThemes {
           color: AppDarkColors.secondaryDarkColor,
         ),
         textTheme: TextTheme(
-          labelSmall:
-              AppTextStyles.generate(fontSize: 10, color: AppDarkColors.white),
-          bodySmall:
-              AppTextStyles.generate(fontSize: 12, color: AppDarkColors.white),
-          bodyMedium:
-              AppTextStyles.generate(fontSize: 14, color: AppDarkColors.white),
-          bodyLarge:
-              AppTextStyles.generate(fontSize: 16, color: AppDarkColors.white),
-          titleSmall:
-              AppTextStyles.generate(fontSize: 18, color: AppDarkColors.white),
+          labelSmall: AppTextStyles.generate(
+              fontSize: 10, color: AppDarkColors.primaryGrey),
+          bodySmall: AppTextStyles.generate(
+              fontSize: 12, color: AppDarkColors.primaryGrey),
+          bodyMedium: AppTextStyles.generate(
+              fontSize: 14, color: AppDarkColors.primaryGrey),
+          bodyLarge: AppTextStyles.generate(
+              fontSize: 16, color: AppDarkColors.primaryGrey),
+          titleSmall: AppTextStyles.generate(
+              fontSize: 18, color: AppDarkColors.primaryGrey),
           titleMedium: AppTextStyles.generate(
             fontSize: 20,
             color: AppDarkColors.white,

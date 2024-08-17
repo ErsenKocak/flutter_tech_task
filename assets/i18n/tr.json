@@ -39,6 +39,7 @@
     "Stop": "Durdur",
     "Edit": "Düzenle",
     "Person": "Kişi",
+    "Refresh": "Yenile",
     "OperationCompletedSuccessfully": "İşlem başarıyla tamamlandı"
   },
   "BottomNavigationBar": {
@@ -46,6 +47,42 @@
     "Favorites": "Favoriler",
     "Notifications": "Bildirimler",
     "Settings": "Ayarlar"
+  },
+  "Home": {
+    "Books": "Kitaplar",
+    "BookName": "Kitap İsmi",
+    "BooksCouldNotBeDelivered": "Kitaplar getirilemedi!",
+    "Page": "Sayfa"
+  },
+  "BookDetail": {
+    "BookDetails": "Kitap Detayları",
+    "Notes": "Notlar",
+    "Villains": "Kitaptaki Kötüler",
+    "Publisher": "Yayın Evi",
+    "CreatedDate": "Oluşturulma Tarihi",
+    "BookDetailInformationCouldNotBeDelivired": "Kitap detay bilgisi getirilemedi!"
+  },
+  "Favorites": {
+    "MyFavoriteBooks": "Favori Kitaplarım",
+    "ThereAreNoFavoritedBooks": "Favoriye alınmış kitap bulunmamaktadır."
+  },
+  "Notification": {
+    "NotificationDate": "Bildirim Tarihi",
+    "NotificationHour": "Bildirim Saati",
+    "ReminderNotificationTitle": "Favori Hatırlatıcısı!",
+    "ReminderNotificationBody": "{bookName} için geri dönmeyi unutma!"
+  },
+  "Theme": {
+    "Light": "Açık",
+    "Dark": "Koyu",
+    "System": "Sistem"
+  },
+  "Settings": {
+    "Settings": "Ayarlar",
+    "Language": "Dil",
+    "LanguageSelection": "Dil Seçimi",
+    "Theme": "Tema",
+    "ThemeSelection": "Tema Seçimi"
   },
   "ErrorMessages": {
     "GlobalError": "Üzgünüz, bir sorun oluştu.",

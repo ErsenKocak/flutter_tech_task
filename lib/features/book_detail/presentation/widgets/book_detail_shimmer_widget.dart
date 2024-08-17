@@ -4,7 +4,6 @@ import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extensio
 import 'package:flutter_tech_task/common/widgets/shimmer/shimmer_generated/shimmer_generated.dart';
 import 'package:flutter_tech_task/common/widgets/shimmer/shimmer_sized/shimmer_sized.dart';
 import 'package:flutter_tech_task/common/widgets/shimmer/shimmer_text/shimmer_text.dart';
-import 'package:flutter_tech_task/core/enums/app_padding/app_padding.dart';
 
 class BookDetailShimmerWidget extends StatelessWidget {
   const BookDetailShimmerWidget({super.key});

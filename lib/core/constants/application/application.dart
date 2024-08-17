@@ -7,6 +7,7 @@ class Application {
       GlobalKey<NavigatorState>();
 
   static BuildContext get applicationContext => navigatorKey.currentContext!;
+  static String deepLinkUrl = 'http://fluttertechtask';
 
   /// Updated from env.json file.
   static int versionCode = 0;
