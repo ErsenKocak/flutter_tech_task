@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tech_task/common/widgets/app_bar/app_bar_widget.dart';
@@ -9,6 +10,7 @@ import 'package:flutter_tech_task/features/book_detail/presentation/cubit/book_d
 import 'package:flutter_tech_task/features/book_detail/presentation/mixin/book_detail_mixin.dart';
 import 'package:flutter_tech_task/features/book_detail/presentation/widgets/book_detail_card_widget.dart';
 import 'package:flutter_tech_task/features/book_detail/presentation/widgets/book_detail_shimmer_widget.dart';
+import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 
 class BookDetailView extends StatefulWidget {
   const BookDetailView({super.key, required this.bookId});
@@ -36,7 +38,7 @@ class _BookDetailViewState extends State<BookDetailView> with BookDetailMixin {
   get _buildAppBar {
     return AppBarWidget(
       leading: AppBarArrowBackLeading(),
-      titleText: 'Kitap Detayı',
+      titleText: LocaleKeys.BookDetail_BookDetails.tr(),
     );
   }
 
@@ -70,7 +72,7 @@ class _BookDetailViewState extends State<BookDetailView> with BookDetailMixin {
 
   Widget _buildEmptyWidget({String? errorMessage}) {
     return AppEmptyWidget(
-      buttonText: 'Yenile',
+      buttonText: LocaleKeys.Global_Refresh.tr(),
       title: errorMessage,
       onPress: () async => await getBookDetail(int.parse(widget.bookId)),
     );

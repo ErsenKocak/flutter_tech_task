@@ -3,7 +3,7 @@ import 'package:flutter_tech_task/common/cubit/theme/theme_state_model.dart';
 import 'package:flutter_tech_task/core/constants/cache/cache_constants.dart';
 import 'package:hive/hive.dart';
 
-class ThemeLocalService extends IThemeLocalService {
+final class ThemeLocalService extends IThemeLocalService {
   ThemeLocalService() {
     initialize();
   }
