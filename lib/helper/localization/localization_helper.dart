@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tech_task/core/constants/application/application.dart';
 
 class AppLocalizationHelper {
-  static List<Locale> localList = [tr, en, fr, de];
+  static List<Locale> localList = [tr, en];
   static const Locale tr = Locale("tr");
   static const Locale en = Locale("en");
-  static const Locale fr = Locale("fr");
-  static const Locale de = Locale("de");
+
   static const String path = 'assets/i18n';
   static Locale currentLocale = tr;
 

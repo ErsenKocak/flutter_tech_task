@@ -3,10 +3,8 @@ import 'package:flutter_tech_task/common/base/cubit/base_cubit.dart';
 import 'package:flutter_tech_task/common/base/cubit/base_state.dart';
 import 'package:flutter_tech_task/common/base/result/base_result.dart';
 import 'package:flutter_tech_task/common/base/result/exception.dart';
-import 'package:flutter_tech_task/common/logger/app_logger.dart';
-import 'package:flutter_tech_task/core/utils/validator/text_input_validator/text_input_validator.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
-import 'package:flutter_tech_task/features/home/domain/repositories/i_book_repository.dart';
+import 'package:flutter_tech_task/features/home/data/repositories/i_book_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_state.dart';
@@ -49,7 +47,9 @@ class HomeCubit extends Cubit<HomeState> with BaseCubit {
         },
       Failure(exception: final AppException exception) => {
           safeEmit(HomeState.failure(exception)),
-          showErrorBottomSheet(exceptionMessage: exception.message),
+
+          /// Hata mesajlarını UI'a taşımak yerine bottom sheet üzerinde göstermek istersek kullanabiliriz
+          // showErrorBottomSheet(exceptionMessage: exception.message),
         },
     };
   }

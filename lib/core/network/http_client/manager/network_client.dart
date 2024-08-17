@@ -11,7 +11,7 @@ import 'package:flutter_tech_task/core/network/http_client/model/cancel_token.da
 import 'package:flutter_tech_task/helper/localization/localization_helper.dart';
 import 'package:flutter_tech_task/helper/network/internet_connection_check/internet_connection_check_helper.dart';
 
-final class NetworkClient {
+class NetworkClient {
   NetworkClient({
     required Dio dio,
     required InternetConnectionCheckerHelper connectionCheckHelper,

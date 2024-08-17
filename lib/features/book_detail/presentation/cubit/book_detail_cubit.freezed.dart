@@ -20,7 +20,7 @@ mixin _$BookDetailState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookDetailEntity bookDetail) success,
+    required TResult Function(BookEntity bookDetail) success,
     required TResult Function(AppException exception) failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$BookDetailState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookDetailEntity bookDetail)? success,
+    TResult? Function(BookEntity bookDetail)? success,
     TResult? Function(AppException exception)? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$BookDetailState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookDetailEntity bookDetail)? success,
+    TResult Function(BookEntity bookDetail)? success,
     TResult Function(AppException exception)? failure,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookDetailEntity bookDetail) success,
+    required TResult Function(BookEntity bookDetail) success,
     required TResult Function(AppException exception) failure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookDetailEntity bookDetail)? success,
+    TResult? Function(BookEntity bookDetail)? success,
     TResult? Function(AppException exception)? failure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookDetailEntity bookDetail)? success,
+    TResult Function(BookEntity bookDetail)? success,
     TResult Function(AppException exception)? failure,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookDetailEntity bookDetail) success,
+    required TResult Function(BookEntity bookDetail) success,
     required TResult Function(AppException exception) failure,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookDetailEntity bookDetail)? success,
+    TResult? Function(BookEntity bookDetail)? success,
     TResult? Function(AppException exception)? failure,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookDetailEntity bookDetail)? success,
+    TResult Function(BookEntity bookDetail)? success,
     TResult Function(AppException exception)? failure,
     required TResult orElse(),
   }) {
@@ -320,9 +320,9 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BookDetailEntity bookDetail});
+  $Res call({BookEntity bookDetail});
 
-  $BookDetailEntityCopyWith<$Res> get bookDetail;
+  $BookEntityCopyWith<$Res> get bookDetail;
 }
 
 /// @nodoc
@@ -342,14 +342,14 @@ class __$$SuccessImplCopyWithImpl<$Res>
       null == bookDetail
           ? _value.bookDetail
           : bookDetail // ignore: cast_nullable_to_non_nullable
-              as BookDetailEntity,
+              as BookEntity,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BookDetailEntityCopyWith<$Res> get bookDetail {
-    return $BookDetailEntityCopyWith<$Res>(_value.bookDetail, (value) {
+  $BookEntityCopyWith<$Res> get bookDetail {
+    return $BookEntityCopyWith<$Res>(_value.bookDetail, (value) {
       return _then(_value.copyWith(bookDetail: value));
     });
   }
@@ -361,7 +361,7 @@ class _$SuccessImpl implements _Success {
   const _$SuccessImpl(this.bookDetail);
 
   @override
-  final BookDetailEntity bookDetail;
+  final BookEntity bookDetail;
 
   @override
   String toString() {
@@ -391,7 +391,7 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookDetailEntity bookDetail) success,
+    required TResult Function(BookEntity bookDetail) success,
     required TResult Function(AppException exception) failure,
   }) {
     return success(bookDetail);
@@ -402,7 +402,7 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookDetailEntity bookDetail)? success,
+    TResult? Function(BookEntity bookDetail)? success,
     TResult? Function(AppException exception)? failure,
   }) {
     return success?.call(bookDetail);
@@ -413,7 +413,7 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookDetailEntity bookDetail)? success,
+    TResult Function(BookEntity bookDetail)? success,
     TResult Function(AppException exception)? failure,
     required TResult orElse(),
   }) {
@@ -462,9 +462,9 @@ class _$SuccessImpl implements _Success {
 }
 
 abstract class _Success implements BookDetailState {
-  const factory _Success(final BookDetailEntity bookDetail) = _$SuccessImpl;
+  const factory _Success(final BookEntity bookDetail) = _$SuccessImpl;
 
-  BookDetailEntity get bookDetail;
+  BookEntity get bookDetail;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -537,7 +537,7 @@ class _$FailureImpl implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(BookDetailEntity bookDetail) success,
+    required TResult Function(BookEntity bookDetail) success,
     required TResult Function(AppException exception) failure,
   }) {
     return failure(exception);
@@ -548,7 +548,7 @@ class _$FailureImpl implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(BookDetailEntity bookDetail)? success,
+    TResult? Function(BookEntity bookDetail)? success,
     TResult? Function(AppException exception)? failure,
   }) {
     return failure?.call(exception);
@@ -559,7 +559,7 @@ class _$FailureImpl implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(BookDetailEntity bookDetail)? success,
+    TResult Function(BookEntity bookDetail)? success,
     TResult Function(AppException exception)? failure,
     required TResult orElse(),
   }) {

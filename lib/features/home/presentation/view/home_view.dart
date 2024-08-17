@@ -1,27 +1,21 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
 
 import 'package:flutter_tech_task/common/widgets/app_bar/app_bar_widget.dart';
-import 'package:flutter_tech_task/common/widgets/app_svg/app_svg_widget.dart';
-import 'package:flutter_tech_task/common/widgets/divider/app_divider.dart';
 import 'package:flutter_tech_task/common/widgets/empty/app_empty_widget.dart';
 import 'package:flutter_tech_task/common/widgets/publisher_card/publisher_card_widget.dart';
 import 'package:flutter_tech_task/common/widgets/search_bar/app_search_bar.dart';
-import 'package:flutter_tech_task/core/constants/colors/app_dark_colors.dart';
-import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
-import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/enums/app_padding/app_padding.dart';
 import 'package:flutter_tech_task/core/router/app_router.dart';
 import 'package:flutter_tech_task/core/router/app_routes.dart';
-import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/features/home/presentation/cubit/home_cubit.dart';
 import 'package:flutter_tech_task/features/home/presentation/mixin/home_mixin.dart';
-import 'package:flutter_tech_task/features/home/presentation/widgets/book_card_widget.dart';
+import 'package:flutter_tech_task/common/widgets/book_card/view/book_card_widget.dart';
 import 'package:flutter_tech_task/features/home/presentation/widgets/home_shimmer_widget.dart';
-import 'package:flutter_tech_task/generated/assets.gen.dart';
+import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -42,7 +36,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
 
   get _buildAppbar {
     return AppBarWidget(
-      titleText: 'Kitaplar',
+      titleText: LocaleKeys.Home_Books.tr(),
     );
   }
 
@@ -74,7 +68,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
 
   Widget get _buildSearchInput {
     return AppSearchInput(
-      hintText: 'Kitap ismi',
+      hintText: LocaleKeys.Home_BookName.tr(),
       controller: searchInputController,
     );
   }
@@ -125,7 +119,7 @@ class _HomeViewState extends State<HomeView> with HomeMixin {
   /// Aynı zamanda da hata mesajını UI'a taşımak istersek State üzerinden parametre vererek taşıyoruz
   Widget _buildEmptyWidget({String? errorMessage}) {
     return AppEmptyWidget(
-      buttonText: 'Yenile',
+      buttonText: LocaleKeys.Global_Refresh.tr(),
       title: errorMessage,
       onPress: () async => await getBooks(),
     );

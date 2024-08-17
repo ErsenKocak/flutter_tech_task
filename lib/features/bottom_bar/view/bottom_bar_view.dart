@@ -37,12 +37,6 @@ class _BottomBarViewState extends State<BottomBarView>
       key: UniqueKey(),
       resizeToAvoidBottomInset: false,
       body: widget.navigationShell,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        height: 48.w,
-        width: 48.w,
-        child: const SizedBox(),
-      ),
       bottomNavigationBar: _buildBottomNavigationBar,
     );
   }
@@ -54,7 +48,6 @@ class _BottomBarViewState extends State<BottomBarView>
         return StylishBottomBar(
           backgroundColor:
               AppThemes.currentTheme.bottomNavigationBarTheme.backgroundColor,
-          fabLocation: StylishBarFabLocation.center,
           hasNotch: true,
           elevation: 12,
           currentIndex: activeIndexNotifierValue,
@@ -101,17 +94,6 @@ class _BottomBarViewState extends State<BottomBarView>
         viewIndex: 1,
       ),
       _buildBottomBarItem(
-        icon: Assets.icons.bottomBar.iconBottomBarNotification.svg(
-          color: AppThemes
-              .currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
-          height: 24.h,
-        ),
-        selectedIcon: Assets.icons.bottomBar.iconBottomBarNotificationActive
-            .svg(height: 24.h),
-        title: LocaleKeys.BottomNavigationBar_Notifications.tr(),
-        viewIndex: 2,
-      ),
-      _buildBottomBarItem(
         icon: Assets.icons.bottomBar.iconBottomBarSettings.svg(
           color: AppThemes
               .currentTheme.bottomNavigationBarTheme.unselectedItemColor!,
@@ -120,7 +102,7 @@ class _BottomBarViewState extends State<BottomBarView>
         selectedIcon: Assets.icons.bottomBar.iconBottomBarSettingsActive
             .svg(height: 24.h),
         title: LocaleKeys.BottomNavigationBar_Settings.tr(),
-        viewIndex: 3,
+        viewIndex: 2,
       ),
     ];
 
@@ -165,11 +147,10 @@ class _BottomBarViewState extends State<BottomBarView>
       case 0:
         bottomNavigatorRoute = AppRoutes.Home.path;
       case 1:
+        bottomNavigatorRoute = AppRoutes.Favorites.path;
+
+      case 2:
         bottomNavigatorRoute = AppRoutes.Settings.path;
-      // case 2:
-      //   bottomNavigatorRoute = AppRoutes.Calendar.path;
-      // case 3:
-      //   bottomNavigatorRoute = AppRoutes.Profile.path;
     }
 
     AppRouter.goNamed(bottomNavigatorRoute);

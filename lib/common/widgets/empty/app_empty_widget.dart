@@ -5,6 +5,7 @@ import 'package:flutter_tech_task/common/extensions/null_check/null_check_extens
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
 import 'package:flutter_tech_task/common/widgets/buttons/elevated_button/elevated_button.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
+import 'package:flutter_tech_task/core/enums/app_padding/app_padding.dart';
 import 'package:flutter_tech_task/generated/assets.gen.dart';
 import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 
@@ -26,18 +27,21 @@ class AppEmptyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _buildEmptyImage,
-          24.sbxh,
-          _buildTitle,
-          _buildSubTitle,
-          24.sbxh,
-          _buildFooterButton
-        ],
+      child: Padding(
+        padding: context.paddingAllHigh2,
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            _buildEmptyImage,
+            24.sbxh,
+            _buildTitle,
+            _buildSubTitle,
+            24.sbxh,
+            _buildFooterButton
+          ],
+        ),
       ),
     );
   }
