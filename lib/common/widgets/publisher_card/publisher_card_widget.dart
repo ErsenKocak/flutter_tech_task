@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
 import 'package:flutter_tech_task/common/widgets/divider/app_divider.dart';
-import 'package:flutter_tech_task/core/constants/application/application.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_dark_colors.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/enums/app_padding/app_padding.dart';
-import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 
 class PublisherCardWidget extends StatelessWidget {
   const PublisherCardWidget(

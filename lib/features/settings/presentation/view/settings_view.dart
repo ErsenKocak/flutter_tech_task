@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tech_task/common/cubit/theme/data/enums/theme_mode_enum.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
-import 'package:flutter_tech_task/common/widgets/app_bar/actions/notification/app_bar_notification_action.dart';
 import 'package:flutter_tech_task/common/widgets/app_bar/app_bar_widget.dart';
 import 'package:flutter_tech_task/common/widgets/bottom_sheets/bottom_sheet/app_bottom_sheet.dart';
 import 'package:flutter_tech_task/common/widgets/scrollable_widgets/scrollable_body/scrollable_body.dart';

@@ -10,11 +10,9 @@ import 'package:flutter_tech_task/common/widgets/date_picker/cupertino_time_pick
 import 'package:flutter_tech_task/common/widgets/notification/notification_time_selecter_mixin.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_dark_colors.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
-import 'package:flutter_tech_task/core/constants/font_weight/app_font_weight.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/enums/date/date_format_types.dart';
 import 'package:flutter_tech_task/core/router/app_router.dart';
-import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 
 class NotificationTimeSelecterWidget extends StatefulWidget {

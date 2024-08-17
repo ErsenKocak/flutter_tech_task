@@ -4,7 +4,6 @@ import 'package:flutter_tech_task/common/cubit/theme/data/services/theme_local_s
 import 'package:flutter_tech_task/common/cubit/theme/theme_cubit.dart';
 import 'package:flutter_tech_task/common/logger/app_logger.dart';
 import 'package:flutter_tech_task/core/constants/application/application.dart';
-import 'package:flutter_tech_task/core/constants/cache/cache_constants.dart';
 import 'package:flutter_tech_task/core/network/http_client/manager/network_client.dart';
 import 'package:flutter_tech_task/features/book_detail/presentation/cubit/book_detail_cubit.dart';
 import 'package:flutter_tech_task/features/favorites/data/repositories/i_favorites_repository.dart';

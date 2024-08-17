@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_tech_task/core/constants/application/application.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_dark_colors.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
-import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/features/settings/presentation/widgets/settings_list_item/data/entities/list_tile_item.dart';
 
 class ListTileItemWidget extends StatelessWidget {

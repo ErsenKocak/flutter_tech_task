@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tech_task/common/widgets/card/general_card/general_card.dart';
 import 'package:flutter_tech_task/common/widgets/switch/app_switch.dart';
-import 'package:flutter_tech_task/core/constants/application/application.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
 import 'package:flutter_tech_task/core/router/app_router.dart';
-import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 import 'package:flutter_tech_task/helper/localization/localization_helper.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tech_task/common/extensions/null_check/null_check_extension.dart';
 import 'package:flutter_tech_task/common/extensions/sized_box/sized_box_extension.dart';
 import 'package:flutter_tech_task/common/functions/date/app_date_functions.dart';
-import 'package:flutter_tech_task/common/widgets/app_svg/app_svg_widget.dart';
 import 'package:flutter_tech_task/core/constants/application/application.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
 import 'package:flutter_tech_task/core/constants/font_weight/app_font_weight.dart';
@@ -12,7 +11,6 @@ import 'package:flutter_tech_task/core/enums/date/date_format_types.dart';
 import 'package:flutter_tech_task/core/utils/theme/text_theme/text_theme.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/common/widgets/book_card/view/book_card_widget.dart';
-import 'package:flutter_tech_task/generated/assets.gen.dart';
 import 'package:flutter_tech_task/generated/locale_keys.g.dart';
 
 class BookDetailCardWidget extends StatelessWidget {

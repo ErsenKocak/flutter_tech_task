@@ -5,7 +5,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_tech_task/common/base/cubit/base_cubit.dart';
 import 'package:flutter_tech_task/common/base/cubit/base_state.dart';
 import 'package:flutter_tech_task/common/extensions/null_check/null_check_extension.dart';
-import 'package:flutter_tech_task/common/logger/app_logger.dart';
 import 'package:flutter_tech_task/features/favorites/data/repositories/i_favorites_repository.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/generated/locale_keys.g.dart';
@@ -79,8 +78,8 @@ class FavoritesCubit extends Cubit<FavoritesState> with BaseCubit {
 
     favoriteBooks.forEach(
       (book) {
-        if (publishers?.contains(book.publisher) == false) {
-          publishers?.add(book.publisher!);
+        if (publishers.contains(book.publisher) == false) {
+          publishers.add(book.publisher!);
         }
       },
     );

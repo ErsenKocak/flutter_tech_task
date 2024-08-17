@@ -1,4 +1,3 @@
-import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'notification_entity.freezed.dart';

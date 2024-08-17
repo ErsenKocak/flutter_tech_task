@@ -1,34 +1,20 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:flutter_tech_task/common/base/result/base_result.dart';
-import 'package:flutter_tech_task/common/base/result/exception.dart';
-import 'package:flutter_tech_task/core/constants/application/application.dart';
+
 import 'package:flutter_tech_task/core/constants/network/http_call_type/http_call_type.dart';
-import 'package:flutter_tech_task/core/network/http_client/interceptor/dio_chucker_interceptor.dart';
-import 'package:flutter_tech_task/core/network/http_client/interceptor/dio_logger_interceptor.dart';
-import 'package:flutter_tech_task/core/network/http_client/interceptor/dio_retry_interceptor.dart';
-import 'package:flutter_tech_task/core/network/http_client/model/cancel_token.dart';
-import 'package:flutter_tech_task/helper/localization/localization_helper.dart';
-import 'package:flutter_tech_task/helper/network/internet_connection_check/internet_connection_check_helper.dart';
 
-class NetworkClient {
-  NetworkClient({
-    required Dio dio,
-    required InternetConnectionCheckerHelper connectionCheckHelper,
-  })  : _connectionCheckHelper = connectionCheckHelper,
-        _dio = dio {
-    _dio.interceptors.add(DioRetryInterceptor.getInterceptor(dio: dio));
-    _dio.interceptors.add(DioLoggerInterceptor.getInterceptor());
-    // _dio.interceptors.add(DioTokenInterceptor());
-    _dio.interceptors.add(DioChuckerInterceptor.getInterceptor());
-  }
+import '../../common/base/mock_base_result.dart';
+import '../../common/base/mock_exception.dart';
+import '../model/mock_cancel_token.dart';
 
+class MockNetworkClient {
   final Dio _dio;
-  final InternetConnectionCheckerHelper _connectionCheckHelper;
+
+  MockNetworkClient({required Dio dio}) : _dio = dio;
 
   // Call:----------------------------------------------------------------------
 
-  Future<Result<T, AppException>> call<T>({
+  Future<MockResult<T, MockAppException>> call<T>({
     required String path,
     required HttpCallType callType,
     required T Function(dynamic json) mapper,
@@ -55,7 +41,7 @@ class NetworkClient {
       // }
 
       late Response<dynamic> dioResponse;
-      cancelToken = AppCancelToken.cancelToken;
+      cancelToken = MockAppCancelToken.cancelToken;
       Map<String, String> headers = await _generateHeaders();
       options ??= Options();
       options = options.copyWith(headers: headers);
@@ -114,7 +100,7 @@ class NetworkClient {
           data: data,
         );
 
-      // final fromResponse = Result.fromResponse(dioResponse, mapper);
+      // final fromResponse = MockResult.fromResponse(dioResponse, mapper);
       // return fromResponse;
       return _handleResponse(dioResponse, mapper, withOutMapper!);
     } on DioException catch (exception) {
@@ -253,12 +239,7 @@ class NetworkClient {
   }
 
   Future<Map<String, String>> _generateHeaders() async {
-    Map<String, String> headers = {
-      "X-Version-Code": "${Application.versionCode}",
-      "X-Version-Name": "${Application.versionName}",
-      "Accept-Language":
-          "${AppLocalizationHelper.currentLocale.languageCode.toUpperCase()}",
-    };
+    Map<String, String> headers = {};
 
     /// Token için interceptor'ımız var request ile birlikte print edilmesi için buraya da ekledik.
     /// İkisi de kullanılabilir.
@@ -278,28 +259,28 @@ class NetworkClient {
     return headers;
   }
 
-  Future<Result<T, AppException>> _handleResponse<T>(
+  Future<MockResult<T, MockAppException>> _handleResponse<T>(
     Response? dioResponse,
     T Function(dynamic) mapper,
     bool withOutMapper,
   ) async {
-    late Result<T, AppException> response;
+    late MockResult<T, MockAppException> response;
 
     if (withOutMapper) {
       switch (dioResponse?.statusCode) {
         case HttpStatus.ok:
         case HttpStatus.accepted:
         case HttpStatus.noContent:
-          response = Success(dioResponse!.data as T);
+          response = MockSuccess(dioResponse!.data as T);
       }
     } else {
-      response = Result.fromResponse(dioResponse, mapper);
+      response = MockResult.fromResponse(dioResponse, mapper);
     }
 
     return response;
   }
 
-  Future<Result<T, AppException>> _handleErrors<T>(
+  Future<MockResult<T, MockAppException>> _handleErrors<T>(
     DioException exception,
     T Function(dynamic) mapper,
   ) async {
@@ -326,6 +307,6 @@ class NetworkClient {
       default:
     }
 
-    return Result.fromResponse(exception.response, mapper);
+    return MockResult.fromResponse(exception.response, mapper);
   }
 }

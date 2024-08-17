@@ -3,8 +3,6 @@ import 'package:flutter_tech_task/common/base/cubit/base_cubit.dart';
 import 'package:flutter_tech_task/common/base/cubit/base_state.dart';
 import 'package:flutter_tech_task/common/base/result/base_result.dart';
 import 'package:flutter_tech_task/common/base/result/exception.dart';
-import 'package:flutter_tech_task/common/logger/app_logger.dart';
-import 'package:flutter_tech_task/core/utils/validator/text_input_validator/text_input_validator.dart';
 import 'package:flutter_tech_task/features/home/domain/entities/response/book_entity/book_entity.dart';
 import 'package:flutter_tech_task/features/home/data/repositories/i_book_repository.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
