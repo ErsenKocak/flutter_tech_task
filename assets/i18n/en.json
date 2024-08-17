@@ -51,6 +51,7 @@
   "Home": {
     "Books": "Books",
     "BookName": "Book Name",
+    "BooksCouldNotBeDelivered": "Books could not be delivered!",
     "Page": "Pages"
   },
   "BookDetail": {
@@ -58,7 +59,8 @@
     "Notes": "Notes",
     "Villains": "Villains",
     "Publisher": "Publisher",
-    "CreatedDate": "Created Date"
+    "CreatedDate": "Created Date",
+    "BookDetailInformationCouldNotBeDelivired": "Book detail information could not be retrieved!"
   },
   "Favorites": {
     "MyFavoriteBooks": "My Favorite Books",

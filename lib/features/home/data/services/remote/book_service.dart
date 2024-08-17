@@ -5,7 +5,7 @@ import 'package:flutter_tech_task/core/mapper/api_model_mapper.dart';
 import 'package:flutter_tech_task/core/network/http_client/http_client_api_url/http_client_end_points.dart';
 import 'package:flutter_tech_task/core/network/http_client/manager/network_client.dart';
 import 'package:flutter_tech_task/features/home/data/models/response/book_model/book_model.dart';
-import 'package:flutter_tech_task/features/home/data/services/i_book_service.dart';
+import 'package:flutter_tech_task/features/home/data/services/remote/i_book_service.dart';
 
 /// final yapılmasının nedeni ise bu classtan başka bir class'ın kalıtım almasını engellemektir.
 /// final yaparak Flutter'a başka bir class'ın kalıtım almayacağını taahhüt ederiz.

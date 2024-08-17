@@ -50,6 +50,7 @@ abstract class  LocaleKeys {
   static const BottomNavigationBar = 'BottomNavigationBar';
   static const Home_Books = 'Home.Books';
   static const Home_BookName = 'Home.BookName';
+  static const Home_BooksCouldNotBeDelivered = 'Home.BooksCouldNotBeDelivered';
   static const Home_Page = 'Home.Page';
   static const Home = 'Home';
   static const BookDetail_BookDetails = 'BookDetail.BookDetails';
@@ -57,6 +58,7 @@ abstract class  LocaleKeys {
   static const BookDetail_Villains = 'BookDetail.Villains';
   static const BookDetail_Publisher = 'BookDetail.Publisher';
   static const BookDetail_CreatedDate = 'BookDetail.CreatedDate';
+  static const BookDetail_BookDetailInformationCouldNotBeDelivired = 'BookDetail.BookDetailInformationCouldNotBeDelivired';
   static const BookDetail = 'BookDetail';
   static const Favorites_MyFavoriteBooks = 'Favorites.MyFavoriteBooks';
   static const Favorites_ThereAreNoFavoritedBooks = 'Favorites.ThereAreNoFavoritedBooks';

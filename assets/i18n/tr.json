@@ -51,6 +51,7 @@
   "Home": {
     "Books": "Kitaplar",
     "BookName": "Kitap İsmi",
+    "BooksCouldNotBeDelivered": "Kitaplar getirilemedi!",
     "Page": "Sayfa"
   },
   "BookDetail": {
@@ -58,7 +59,8 @@
     "Notes": "Notlar",
     "Villains": "Kitaptaki Kötüler",
     "Publisher": "Yayın Evi",
-    "CreatedDate": "Oluşturulma Tarihi"
+    "CreatedDate": "Oluşturulma Tarihi",
+    "BookDetailInformationCouldNotBeDelivired": "Kitap detay bilgisi getirilemedi!"
   },
   "Favorites": {
     "MyFavoriteBooks": "Favori Kitaplarım",

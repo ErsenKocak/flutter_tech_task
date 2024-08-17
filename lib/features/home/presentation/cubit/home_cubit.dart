@@ -49,7 +49,9 @@ class HomeCubit extends Cubit<HomeState> with BaseCubit {
         },
       Failure(exception: final AppException exception) => {
           safeEmit(HomeState.failure(exception)),
-          showErrorBottomSheet(exceptionMessage: exception.message),
+
+          /// Hata mesajlarını UI'a taşımak yerine bottom sheet üzerinde göstermek istersek kullanabiliriz
+          // showErrorBottomSheet(exceptionMessage: exception.message),
         },
     };
   }
