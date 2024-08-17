@@ -39,6 +39,9 @@ class $AssetsIconsGen {
 
   /// Directory path: assets/icons/general
   $AssetsIconsGeneralGen get general => const $AssetsIconsGeneralGen();
+
+  /// Directory path: assets/icons/settings
+  $AssetsIconsSettingsGen get settings => const $AssetsIconsSettingsGen();
 }
 
 class $AssetsImagesGen {
@@ -133,6 +136,19 @@ class $AssetsIconsGeneralGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [icBook, iconBookmarkFill, iconClose, iconLike, iconLikeFill];
+}
+
+class $AssetsIconsSettingsGen {
+  const $AssetsIconsSettingsGen();
+
+  /// File path: assets/icons/settings/icon_language.svg
+  SvgGenImage get iconLanguage => const SvgGenImage('assets/icons/settings/icon_language.svg');
+
+  /// File path: assets/icons/settings/icon_theme.svg
+  SvgGenImage get iconTheme => const SvgGenImage('assets/icons/settings/icon_theme.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [iconLanguage, iconTheme];
 }
 
 class $AssetsImagesBottomSheetsGen {

@@ -3,13 +3,13 @@ import 'package:hive/hive.dart';
 
 abstract class HiveCacheManager<T> extends ICacheManager<T> {
   String get boxName;
-  Box<T>? _box;
+  Box<T>? box;
 
   @override
   Future<void> initialize() async {
     registerAdapters();
-    if (_box?.isOpen != true) {
-      _box = await Hive.box(name: boxName);
+    if (box?.isOpen != true) {
+      box = await Hive.box<T>(name: boxName);
     }
   }
 
@@ -17,42 +17,47 @@ abstract class HiveCacheManager<T> extends ICacheManager<T> {
 
   @override
   Future<T?> get(String key) async {
-    final value = await _box?.get(key);
+    final value = await box?.get(key);
     return value;
   }
 
   @override
   List<T?>? getAll(Iterable<String> keys) {
-    return _box?.getAll(keys).toList();
+    return box?.getAll(keys).toList();
   }
 
   @override
   void add(T item) {
-    _box?.add(item);
+    box?.add(item);
   }
 
   @override
   void addList(List<T> items) {
-    _box?.addAll(items);
+    box?.addAll(items);
   }
 
   @override
   bool? delete(String key) {
-    return _box?.delete(key);
+    return box?.delete(key);
   }
 
   @override
   void put(String key, T item) async {
-    _box?.put(key, item);
+    box?.put(key, item);
   }
 
   @override
   void putAll(Map<String, T> mapObject) async {
-    _box?.putAll(mapObject);
+    box?.putAll(mapObject);
   }
 
   @override
   Future<void> deleteAll(Iterable<String> keys) async {
-    _box?.deleteAll(keys);
+    box?.deleteAll(keys);
+  }
+
+  @override
+  void clear({bool notify = true}) async {
+    box?.clear(notify: notify);
   }
 }

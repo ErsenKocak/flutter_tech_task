@@ -1,0 +1,18 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appIDs": [
+                    "X213123.io.onedosehealth.fluttertechtask",
+                    "X213123.io.onedosehealth.fluttertechtask.dev",
+                    "X213123.io.onedosehealth.fluttertechtask.test",
+                    "X213123.io.onedosehealth.fluttertechtask.uat"
+                ],
+                "paths": [
+                    "*"
+                ]
+            }
+        ]
+    }
+}

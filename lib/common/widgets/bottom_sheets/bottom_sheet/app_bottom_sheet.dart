@@ -6,8 +6,6 @@ import 'package:flutter_tech_task/core/constants/colors/app_dark_colors.dart';
 import 'package:flutter_tech_task/core/constants/colors/app_light_colors.dart';
 import 'package:flutter_tech_task/core/constants/font_weight/app_font_weight.dart';
 import 'package:flutter_tech_task/core/constants/theme/app_themes.dart';
-import 'package:flutter_tech_task/core/router/app_router.dart';
-import 'package:flutter_tech_task/generated/assets.gen.dart';
 
 class AppBottomSheet {
   static Future<T?> show<T>({
@@ -125,27 +123,12 @@ class AppBottomSheet {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               title != null
-                  ? titlePrefix ??
-                      Assets.icons.bottomSheet.iconClose
-                          .svg(color: Colors.transparent, height: 25.h)
-                  : const SizedBox(),
-              title != null
                   ? Text(
                       title,
                       style: AppThemes.currentTheme.textTheme.bodyMedium
                           ?.copyWith(fontWeight: AppFontWeight.medium.value),
                     )
                   : const SizedBox(),
-              titleSuffix ??
-                  GestureDetector(
-                    onTap: () => AppRouter.pop(),
-                    child: Assets.icons.bottomSheet.iconClose.svg(
-                      color: AppThemes.brightness == Brightness.light
-                          ? AppLightColors.black
-                          : null,
-                      height: 25.h,
-                    ),
-                  ),
             ],
           ),
         ],

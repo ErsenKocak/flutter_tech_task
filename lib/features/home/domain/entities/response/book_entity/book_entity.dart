@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'book_entity.freezed.dart';
 part 'book_entity.g.dart';
 
+// @Freezed(toJson: false)
 @freezed
 class BookEntity with _$BookEntity {
   /// İç içe model yapılarında fromJson, toJson yapılarının doğru çalışması için kullanılmaktadır.
